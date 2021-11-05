@@ -1,7 +1,38 @@
-ul li {
-  list-style-type: georgian;
+.app-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /*gap: 10px;*/
+  grid-template-areas:
+  "head head"
+  "nav cont";
 }
 
-a {
-  padding: 5px;
+/*======= header ==========*/
+.header {
+  grid-area: head;
+  background-color: aqua;
+}
+.logo {
+  width: 60px;
+}
+
+/*=========== Nav =============*/
+.nav {
+  grid-area: nav;
+  background-color: firebrick;
+}
+
+/*========== Content ============*/
+.content {
+  grid-area: cont;
+  background-color: blue;
+}
+.img-content {
+  width: 100%;
+}
+.avatar {
+  width: 100px;
 }
