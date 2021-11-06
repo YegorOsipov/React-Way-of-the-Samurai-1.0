@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  /*gap: 10px;*/
+  gap: 10px;
   grid-template-areas:
   "head head"
   "nav cont";
@@ -13,26 +13,52 @@
 /*======= header ==========*/
 .header {
   grid-area: head;
-  background-color: aqua;
+  background-color: #b3dcff;
 }
 .logo {
   width: 60px;
 }
 
-/*=========== Nav =============*/
+/*=========== NavBar =============*/
 .nav {
   grid-area: nav;
-  background-color: firebrick;
+  background-color: #b3dcff;
 }
 
 /*========== Content ============*/
 .content {
+  display: grid;
   grid-area: cont;
-  background-color: blue;
+  grid-template-rows: 200px 1fr;
+  gap: 10px;
+  grid-template-areas:
+          "cont-img"
+          "cont-wr";
+
+  background-color: #ffffff;
 }
-.img-content {
+.content-img img {
+  grid-area: cont-img;
   width: 100%;
+  max-height: 200px;
+}
+
+.content-wrapper {
+  grid-area: cont-wr;
+  background-color: #e5e5e5;
+}
+
+
+.content-wrapper-dis {
+  display: flex;
+  align-items: center;
 }
 .avatar {
   width: 100px;
+  margin-right: 20px;
+}
+
+.discr-name {
+  margin: 0 0 20px;
+  font-size: 20px;
 }
