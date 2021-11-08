@@ -1,0 +1,38 @@
+.content {
+    display: grid;
+    grid-area: cont;
+    grid-template-rows: 200px 1fr;
+    gap: 10px;
+    grid-template-areas:
+          "cont-img"
+          "cont-wr";
+
+    background-color: #ffffff;
+}
+.imgWrapper img {
+    grid-area: cont-img;
+    width: 100%;
+    max-height: 200px;
+}
+
+.wrapper {
+    grid-area: cont-wr;
+    padding: 0 10px 0;
+    background-color: #e5e5e5;
+}
+
+.wrapperWall {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 100px;
+    margin-right: 20px;
+}
+
+ .descr .name {
+    margin: 0 0 20px;
+    font-size: 20px;
+}

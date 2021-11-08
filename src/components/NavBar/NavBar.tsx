@@ -1,23 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import cls from "./NavBar.module.css";
 
 export function NavBar() {
     return (
-        <nav className={'nav'}>
-            <div>
+        <nav className={cls.nav}>
+            <div className={cls.item}>
                 <a href="#">Profile</a>
             </div>
-            <div>
+            <div className={cls.item}>
                 <a href="#">Messages</a>
             </div>
-            <div>
+            <div className={cls.item}>
                 <a href="#">News</a>
             </div>
-            <div>
+            <div className={cls.item}>
                 <a href="#">Music</a>
             </div>
-            <div>
-                <a href="">Settings</a>
+            <div className={cls.item}>
+                <a href="#">Settings</a>
             </div>
         </nav>
     );

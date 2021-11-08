@@ -1,0 +1,22 @@
+.header {
+    padding: 0 10px;
+    grid-area: head;
+    background-color: #b3dcff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 65px;
+    cursor: pointer;
+}
+.name {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #ec5441;
+}
+

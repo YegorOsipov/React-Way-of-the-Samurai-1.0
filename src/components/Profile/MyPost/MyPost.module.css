@@ -1,0 +1,27 @@
+
+.area {
+    width: 95%;
+    min-height: 50px;
+    padding: 5px;
+    margin: 10px 0;
+    resize: none;
+    color: #000;
+}
+.btnWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn {
+    background-color: #b3dcff;
+    margin-right: 35px;
+    padding: 3px 35px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #ec5441;
+}
+
+.posts {
+
+}
