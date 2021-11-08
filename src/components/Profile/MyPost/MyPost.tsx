@@ -13,9 +13,9 @@ export function MyPost() {
                 <button className={cls.btn}>Send</button>
             </div>
             <div className={cls.posts}>
-                <Post />
-                <Post />
-                <Post />
+                <Post message={"Don't worry, be happy!!!"} countLikes={12}/>
+                <Post message={"The world is mine!!!"} countLikes={10}/>
+                <Post message={"Glad to see you!!!"} countLikes={6}/>
             </div>
         </div>
     );
