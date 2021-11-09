@@ -5,7 +5,7 @@ import {MyPost} from "./MyPost/MyPost";
 
 export function ProFile() {
     return (
-        <div className={cls.content}>
+            <div className={cls.content}>
             <div className={cls.imgWrapper}>
                 <img
                      src={ImageWall}

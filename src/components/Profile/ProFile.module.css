@@ -1,13 +1,10 @@
 .content {
     display: grid;
-    grid-area: cont;
     grid-template-rows: 200px 1fr;
     gap: 10px;
     grid-template-areas:
           "cont-img"
           "cont-wr";
-
-    background-color: #ffffff;
 }
 .imgWrapper img {
     grid-area: cont-img;

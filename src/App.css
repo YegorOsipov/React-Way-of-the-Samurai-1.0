@@ -1,11 +1,27 @@
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
 .app-wrapper {
-  width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  gap: 10px;
-  grid-template-areas:
+    box-sizing: border-box;
+
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    gap: 10px;
+    grid-template-areas:
   "head head"
   "nav cont";
+
+}
+
+.app_content {
+    grid-area: cont;
+    background-color: #ffffff;
+}
+
+.dialog {
 }
