@@ -1,24 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import cls from "./NavBar.module.css";
+import {NavLink} from "react-router-dom";
 
 export function NavBar() {
     return (
         <nav className={cls.nav}>
             <div className={cls.item}>
-                <a href="/profile">Profile</a>
+                <NavLink to="/">Profile</NavLink>
             </div>
             <div className={cls.item}>
-                <a href="/dialogs">Messages</a>
+                <NavLink to="/dialogs">Messages</NavLink>
             </div>
             <div className={cls.item}>
-                <a href="/news">News</a>
+                <NavLink to="/news">News</NavLink>
             </div>
             <div className={cls.item}>
-                <a href="/music">Music</a>
+                <NavLink to="/music">Music</NavLink>
             </div>
             <div className={cls.item}>
-                <a href="/settings">Settings</a>
+                <NavLink to="/settings">Settings</NavLink>
             </div>
         </nav>
     );

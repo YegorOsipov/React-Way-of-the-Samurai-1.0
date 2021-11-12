@@ -1,0 +1,26 @@
+.lettres__item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.ava__wrapper {
+    max-width: 106px;
+}
+
+.lettres__item img {
+    max-width: 60px;
+    max-height: 60px;
+    margin-right: 60px;
+}
+
+.lettres__item {
+    align-items: end;
+}
+
+.message {
+    max-width: 300px;
+    padding: 20px 5px 20px 20px;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 10px 10px 10px 0;
+}
