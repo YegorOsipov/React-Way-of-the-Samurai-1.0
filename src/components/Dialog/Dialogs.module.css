@@ -32,8 +32,15 @@
     margin-right: 5px;
 }
 
-.names__item span {
-    cursor: pointer;
+.names__item a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.2s;
+}
+
+.names__item a.active {
+    font-size: 18px;
+    color: #ec5441;
 }
 
 .letters {
@@ -67,3 +74,4 @@
     border: 2px solid #ffffff;
     border-radius: 10px 10px 10px 0;
 }
+

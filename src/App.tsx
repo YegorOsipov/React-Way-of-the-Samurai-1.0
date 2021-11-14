@@ -20,7 +20,7 @@ function App() {
 
                 <Routes>
                     <Route path='/' element={<ProFile/>}/>
-                    <Route path='/dialogs' element={<Dialogs/>}/>
+                    <Route path='/dialogs/*' element={<Dialogs/>}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>

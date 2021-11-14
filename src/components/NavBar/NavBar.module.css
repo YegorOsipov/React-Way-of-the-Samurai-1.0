@@ -12,12 +12,18 @@
     margin: 30px 0 0;
 }
 
-a {
+.item a {
+    font-size: 18px;
     text-decoration: none;
     color: #000;
     transition: color 0.2s;
 }
 
 a:hover {
+    color: #ec5441;
+}
+
+.item a.active {
+    font-size: 20px;
     color: #ec5441;
 }

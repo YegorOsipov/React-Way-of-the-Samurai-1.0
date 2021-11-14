@@ -3,23 +3,29 @@ import React from "react";
 import cls from "./NavBar.module.css";
 import {NavLink} from "react-router-dom";
 
+export let active = (navData:{isActive: boolean}) => navData.isActive ? cls.active : "";
+
 export function NavBar() {
     return (
         <nav className={cls.nav}>
             <div className={cls.item}>
-                <NavLink to="/">Profile</NavLink>
+                <NavLink to="/" className={active}>Profile</NavLink>
             </div>
+
             <div className={cls.item}>
-                <NavLink to="/dialogs">Messages</NavLink>
+                <NavLink to="/dialogs" className={active}>Messages</NavLink>
             </div>
+
             <div className={cls.item}>
-                <NavLink to="/news">News</NavLink>
+                <NavLink to="/news" className={active}>News</NavLink>
             </div>
+
             <div className={cls.item}>
-                <NavLink to="/music">Music</NavLink>
+                <NavLink to="/music" className={active}>Music</NavLink>
             </div>
+
             <div className={cls.item}>
-                <NavLink to="/settings">Settings</NavLink>
+                <NavLink to="/settings" className={active}>Settings</NavLink>
             </div>
         </nav>
     );

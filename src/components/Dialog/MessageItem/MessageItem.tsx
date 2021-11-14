@@ -1,8 +1,11 @@
 import React from "react";
 import cls from "./MessageItem.module.css"
 
+type MessageTextType = {
+    text: string
+}
 
-export function MessageItem() {
+export function MessageItem(props: MessageTextType) {
     return (
         <div className={cls.lettres__item}>
             <div className={cls.ava__wrapper}>
@@ -12,9 +15,7 @@ export function MessageItem() {
                 <div>Имя</div>
             </div>
             <div>
-                <div className={cls.message}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos,
-                    voluptatum.
-                </div>
+                <div className={cls.message}>{props.text}</div>
             </div>
         </div>
     )
