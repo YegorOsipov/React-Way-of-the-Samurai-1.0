@@ -8,6 +8,7 @@ import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {dialogs, messages} from "./index";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
                 <Routes>
                     <Route path='/' element={<ProFile/>}/>
-                    <Route path='/dialogs/*' element={<Dialogs/>}/>
+                    <Route path='/dialogs/*' element={<Dialogs dialogs={dialogs} messages={messages}/>}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>

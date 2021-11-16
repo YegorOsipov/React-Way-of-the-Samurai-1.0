@@ -1,12 +1,12 @@
 import React from "react";
 import cls from "./MessageItem.module.css"
 
-type MessageTextType = {
+export type MessageItemType = {
     text: string
     id: number
 }
 
-export function MessageItem(props: MessageTextType) {
+export function MessageItem(props: MessageItemType) {
     return (
         <div className={cls.lettres__item}>
             <div className={cls.ava__wrapper}>
