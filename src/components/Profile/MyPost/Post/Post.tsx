@@ -4,6 +4,7 @@ import cls from './Post.module.css';
 type PropsType = {
     message: string
     countLikes: number
+    id: number
 }
 
 export function Post(props: PropsType) {

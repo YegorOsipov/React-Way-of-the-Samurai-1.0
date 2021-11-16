@@ -3,48 +3,58 @@ import cls from "./Dialogs.module.css";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {MessageItem} from "./MessageItem/MessageItem";
 
+// type dialogsDataTypes = {
+//     dialogsData: Array<DialogItemTypes>
+// }
+
 export function Dialogs() {
+    let dialogs = [
+        {id: 1, name: "Leon", ava: "https://i.pinimg.com/originals/68/51/b6/6851b67f79f054717ec8f2f3208e9b5a.jpg"},
+
+        {id: 2, name: "David", ava: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBoqGqblOUNUHPHD-hrqk-Xhv3_aJJis4DKw&usqp=CAU"},
+
+        {id: 3, name: "Sergio", ava: "https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"},
+
+        {id: 4, name: "Nick", ava: "https://cs5.livemaster.ru/storage/38/09/2ca19526b9518428fd4bfa656eoi--materialy-dlya-tvorchestva-termotransfer-tigr-v-ochkah-termoa.jpg"},
+
+        {id: 5, name: "Sam", ava: "https://www.meme-arsenal.com/memes/be977322b2f450ba30c0e0083441fa9d.jpg"},
+
+        {id: 6, name: "Piter", ava: "https://store.playstation.com/store/api/chihiro/00_09_000/container/RU/ru/99/EP2402-CUSA05624_00-AV00000000000206/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=720&h=720"},
+
+        {id: 7, name: "Alex", ava: "https://cdn1.flamp.ru/fe8f2039f0b6422ec0d6e9a500929758.jpeg"},
+
+        {id: 8, name: "Mike", ava: "https://avatarko.ru/img/kartinka/5/kot_ochki_4754.jpg"}
+    ];
+
+    const dialogElements = dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
+
+    const messages = [
+        {id: 1, text: "Hi, how are you?"},
+
+        {id: 2, text: "Glad to see you!"},
+
+        {id: 3, text: "We are the champions, my friend!!!"},
+
+        {id: 4, text: "You are welcome!?"},
+
+        {id: 5, text: "No, thanks"},
+
+        {id: 6, text: "You are crazy, man!!!"},
+
+        {id: 7, text: "What is this???"}
+    ];
+
+    const messageElements = messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
+
     return (
         <div className={cls.wrapper}>
             <div className={cls.names}>
                 <div className={cls.title}>DIALOGS</div>
-
-                <DialogItem ava="https://i.pinimg.com/originals/68/51/b6/6851b67f79f054717ec8f2f3208e9b5a.jpg"
-                            name="Leon" id={1}/>
-
-                <DialogItem
-                    ava="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBoqGqblOUNUHPHD-hrqk-Xhv3_aJJis4DKw&usqp=CAU"
-                    name="David" id={2}/>
-
-                <DialogItem
-                    ava="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
-                    name="Sergio" id={3}/>
-
-                <DialogItem
-                    ava="https://cs5.livemaster.ru/storage/38/09/2ca19526b9518428fd4bfa656eoi--materialy-dlya-tvorchestva-termotransfer-tigr-v-ochkah-termoa.jpg"
-                    name="Nick" id={4}/>
-
-                <DialogItem ava="https://www.meme-arsenal.com/memes/be977322b2f450ba30c0e0083441fa9d.jpg" name="Sam" id={5}/>
-
-                <DialogItem
-                    ava="https://store.playstation.com/store/api/chihiro/00_09_000/container/RU/ru/99/EP2402-CUSA05624_00-AV00000000000206/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=720&h=720"
-                    name="Piter" id={6}/>
-
-                <DialogItem ava="https://cdn1.flamp.ru/fe8f2039f0b6422ec0d6e9a500929758.jpeg" name="Alex" id={7}/>
-
-                <DialogItem
-                    ava="https://avatars.mds.yandex.net/get-pdb/1751508/5ce53352-7bf5-4b8b-801c-a4f1a7e06a0d/s1200"
-                    name="Mike" id={8}/>
+                {dialogElements}
             </div>
 
             <div className={cls.letters}>
-                <MessageItem text="Hi, how are you?"/>
-                <MessageItem text="Glad to see you!"/>
-                <MessageItem text="We are the champions, my friend!!!"/>
-                <MessageItem text="You are welcome!"/>
-                <MessageItem text="No, thanks"/>
-                <MessageItem text="You are crazy, man!!!"/>
-                <MessageItem text="What is this???"/>
+                {messageElements}
             </div>
 
         </div>

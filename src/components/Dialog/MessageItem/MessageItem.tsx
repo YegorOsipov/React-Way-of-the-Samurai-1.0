@@ -3,6 +3,7 @@ import cls from "./MessageItem.module.css"
 
 type MessageTextType = {
     text: string
+    id: number
 }
 
 export function MessageItem(props: MessageTextType) {
