@@ -1,10 +1,6 @@
 import React from "react";
 import cls from "./MessageItem.module.css"
-
-export type MessageItemType = {
-    text: string
-    id: number
-}
+import {MessageItemType} from "../../../redux/state";
 
 export function MessageItem(props: MessageItemType) {
     return (

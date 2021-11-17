@@ -1,13 +1,8 @@
 import React from "react";
 import cls from './Post.module.css';
+import {PostTypes} from "../../../../redux/state";
 
-export type PostType = {
-    message: string
-    countLikes: number
-    id: number
-}
-
-export function Post(props: PostType) {
+export function Post(props: PostTypes) {
     return (
         <div className={cls.item}>
             <img src="https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg"

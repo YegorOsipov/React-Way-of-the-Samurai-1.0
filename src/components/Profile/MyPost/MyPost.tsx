@@ -1,9 +1,9 @@
 import React from "react";
 import cls from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {PostsTypes} from "../../../index";
+import {ProfilePageTypes} from "../../../redux/state";
 
-export function MyPost(props: PostsTypes) {
+export function MyPost(props: ProfilePageTypes) {
     const postsElements = props.posts.map(el => (<Post message={el.message} countLikes={el.countLikes} id={el.id}/>))
 
     return (

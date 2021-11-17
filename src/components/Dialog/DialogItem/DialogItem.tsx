@@ -1,14 +1,9 @@
 import cls from "../Dialogs.module.css";
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {DialogItemTypes} from "../../../redux/state";
 
-const active = (navData:{isActive: boolean}) => navData.isActive ? cls.active : "";
-
-export type DialogItemTypes = {
-    ava: string
-    name: string
-    id: number
-}
+const active = (navData: { isActive: boolean }) => navData.isActive ? cls.active : "";
 
 export function DialogItem(props: DialogItemTypes) {
     // let url = useLocation();
