@@ -1,3 +1,4 @@
+import {renderEntireTree} from "../render";
 
 export type DialogItemTypes = {
     ava: string
@@ -20,9 +21,20 @@ export type ProfilePageTypes = {
     posts: Array<PostTypes>
 }
 
+export type MyPostAndNewPostType = {
+    posts: Array<PostTypes>
+    addPost: (newMessage: string) => void
+}
+
 export type MessagePageTypes = {
     dialogs: Array<DialogItemTypes>
     messages: Array<MessageItemType>
+}
+
+export type MessagePageAndNewMessageTypes = {
+    dialogs: Array<DialogItemTypes>
+    messages: Array<MessageItemType>
+    addMessage: (newText: string) => void
 }
 
 export type StateTypes = {
@@ -30,7 +42,7 @@ export type StateTypes = {
     messagePage: MessagePageTypes
 }
 
-export let state = {
+export let state: StateTypes = {
     profilePage: {
         posts: [
             {id: 1, message: "Don't worry, be happy!!!", countLikes: 12},
@@ -62,3 +74,16 @@ export let state = {
         ],
     }
 };
+
+
+export function addPost(newMessage: string): void  {
+    let newPost: PostTypes = { id: 5, message: newMessage, countLikes: 0 };
+    state.profilePage.posts.push(newPost);
+    renderEntireTree(state);
+}
+
+export function addMessage(newText: string): void {
+    let newMessage: MessageItemType = { id: 8, text:newText };
+    state.messagePage.messages.push(newMessage);
+    renderEntireTree(state);
+}
