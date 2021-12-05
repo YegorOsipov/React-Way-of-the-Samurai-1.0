@@ -5,17 +5,16 @@ import {MyPostAndNewPostType} from "../../../redux/state";
 
 
 export function MyPost(props: MyPostAndNewPostType) {
-    const postsElements = props.posts.map(el => (<Post message={el.message} countLikes={el.countLikes} id={el.id}/>))
+    const postsElements = props.posts.map(el => (<Post key={el.id} message={el.message} countLikes={el.countLikes} id={el.id}/>))
 
-    let newPostElement = React.createRef<HTMLTextAreaElement>();
-    let addPost = () => {
-        let text = newPostElement.current?.value;
-        if (text) {
-            props.addPost(text);
-        }
-        if (newPostElement.current) {
-            newPostElement.current.value = '';
-        }
+    const newPostElement = React.createRef<HTMLTextAreaElement>();
+    const addPost = () => {
+        if (newPostElement.current) props.addPost();
+
+    }
+
+    const onPostChange = () => {
+        if (newPostElement.current) props.updateNewPostText(newPostElement.current.value);
     }
 
 
@@ -23,7 +22,13 @@ export function MyPost(props: MyPostAndNewPostType) {
         <div className="my_post">
             My posts
             <div>
-                <textarea ref={newPostElement} className={cls.area} placeholder="your news..."/>
+                <textarea
+                    ref={newPostElement}
+                    onChange={onPostChange}
+                    value={props.newPostText}
+                    className={cls.area}
+                    placeholder="your news..."
+                />
             </div>
             <div className={cls.btnWrapper}>
                 <button onClick={addPost} className={cls.btn}>Send</button>

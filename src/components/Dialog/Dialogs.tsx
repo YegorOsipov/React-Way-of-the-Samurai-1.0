@@ -9,16 +9,19 @@ export function Dialogs(props: MessagePageAndNewMessageTypes) {
     const dialogElements = props.dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
     const messageElements = props.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
 
-    let newMessage = React.createRef<HTMLTextAreaElement>()
+    let newText = React.createRef<HTMLTextAreaElement>()
 
     let addMessage = () => {
-        let text = newMessage.current?.value;
-        if (text) {
-            props.addMessage(text)
+        if (newText.current) {
+            props.addMessage()
         }
-        if (newMessage.current) {
-            newMessage.current.value = '';
+    }
+
+    const onMessageChange = () => {
+        if (newText.current) {
+            props.updateNewMessageText(newText.current.value)
         }
+
     }
 
     return (
@@ -30,7 +33,7 @@ export function Dialogs(props: MessagePageAndNewMessageTypes) {
 
             <div className={cls.letters}>
                 {messageElements}
-                <textarea ref={newMessage} className={cls.area} placeholder="your message..."/>
+                <textarea ref={newText} value={props.newMessage} onChange={onMessageChange} className={cls.area} placeholder="your message..."/>
                 <div className={cls.btnWrapper}>
                     <button onClick={addMessage} className={cls.btn}>Send</button>
                 </div>

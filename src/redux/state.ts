@@ -1,5 +1,3 @@
-import {renderEntireTree} from "../render";
-
 export type DialogItemTypes = {
     ava: string
     name: string
@@ -19,22 +17,29 @@ export type PostTypes = {
 
 export type ProfilePageTypes = {
     posts: Array<PostTypes>
+    newPostText: string
 }
 
 export type MyPostAndNewPostType = {
     posts: Array<PostTypes>
-    addPost: (newMessage: string) => void
+    newPostText: string
+    addPost: () => void
+    updateNewPostText: (s: string) => void
 }
 
 export type MessagePageTypes = {
     dialogs: Array<DialogItemTypes>
     messages: Array<MessageItemType>
+    newMessage: string
 }
 
 export type MessagePageAndNewMessageTypes = {
     dialogs: Array<DialogItemTypes>
     messages: Array<MessageItemType>
-    addMessage: (newText: string) => void
+    newMessage: string
+    addMessage: () => void
+    updateNewMessageText: (newText: string) => void
+
 }
 
 export type StateTypes = {
@@ -48,7 +53,8 @@ export let state: StateTypes = {
             {id: 1, message: "Don't worry, be happy!!!", countLikes: 12},
             {id: 2, message: "The world is mine!!!", countLikes: 10},
             {id: 3, message: "Glad to see you!!!", countLikes: 6}
-        ]
+        ],
+        newPostText: ''
     },
 
     messagePage: {
@@ -72,18 +78,37 @@ export let state: StateTypes = {
             {id: 6, text: "You are crazy, man!!!"},
             {id: 7, text: "What is this???"}
         ],
+        newMessage: ''
     }
 };
 
-
-export function addPost(newMessage: string): void  {
-    let newPost: PostTypes = { id: 5, message: newMessage, countLikes: 0 };
+export function addPost() {
+    let newPost: PostTypes = { id: 5, message: state.profilePage.newPostText, countLikes: 0 };
     state.profilePage.posts.push(newPost);
-    renderEntireTree(state);
+    state.profilePage.newPostText = '';
+    renderEntireTree();
 }
 
-export function addMessage(newText: string): void {
-    let newMessage: MessageItemType = { id: 8, text:newText };
+export function updateNewPostText(newText: string) {
+    state.profilePage.newPostText = newText;
+    renderEntireTree();
+}
+
+let renderEntireTree = () => {
+}
+
+export const subscribe = (observer: () => void) => {
+    renderEntireTree = observer; // патерн
+}
+
+export function addMessage() {
+    let newMessage: MessageItemType = { id: 8, text: state.messagePage.newMessage };
     state.messagePage.messages.push(newMessage);
-    renderEntireTree(state);
+    state.messagePage.newMessage = '';
+    renderEntireTree();
+}
+
+export function updateNewMessageText(newText: string) {
+    state.messagePage.newMessage = newText;
+    renderEntireTree();
 }
