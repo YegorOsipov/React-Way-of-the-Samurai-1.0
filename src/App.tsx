@@ -7,8 +7,8 @@ import {ProFile} from "./components/Profile/ProFile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {StateTypes, updateNewMessageText} from "./redux/state";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {StateTypes,} from "./redux/state";
 
 type AppStateTypes = {
     state: StateTypes
@@ -40,7 +40,7 @@ function App(props: AppStateTypes) {
                             messages={props.state.messagePage.messages}
                             newMessage={props.state.messagePage.newMessage}
                             addMessage={props.addMessage}
-                            updateNewMessageText={updateNewMessageText}
+                            updateNewMessageText={props.updateNewMessageText}
                         />
                     }/>
                     <Route path='/news' element={<News/>}/>
