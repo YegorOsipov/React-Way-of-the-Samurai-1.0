@@ -2,9 +2,16 @@ import React from "react";
 import cls from "./Dialogs.module.css";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {MessageItem} from "./MessageItem/MessageItem";
-import {MessagePageAndNewMessageTypes} from "../../redux/state";
+import {ActionsType, DialogItemTypes, MessageItemType} from "../../redux/state";
 
-export function Dialogs(props: MessagePageAndNewMessageTypes) {
+type DialogsType = {
+    dialogs: Array<DialogItemTypes>
+    messages: Array<MessageItemType>
+    dispatch: (action: ActionsType) => void
+    newMessage: string
+}
+
+export function Dialogs(props: DialogsType) {
 
     const dialogElements = props.dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
     const messageElements = props.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
@@ -13,13 +20,13 @@ export function Dialogs(props: MessagePageAndNewMessageTypes) {
 
     let addMessage = () => {
         if (newText.current) {
-            props.addMessage()
+            props.dispatch({type: "ADD-MESSAGE", newMessage: props.newMessage});
         }
     }
 
     const onMessageChange = () => {
         if (newText.current) {
-            props.updateNewMessageText(newText.current.value)
+            props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: newText.current.value});
         }
 
     }

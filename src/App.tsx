@@ -8,17 +8,14 @@ import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {StateTypes,} from "./redux/state";
+import {store, StoreType,} from "./redux/state";
 
 type AppStateTypes = {
-    state: StateTypes
-    addPost: () => void
-    addMessage: () => void
-    updateNewPostText: (newText: string) => void
-    updateNewMessageText: (newText: string) => void
+    store: StoreType
 }
 
 function App(props: AppStateTypes) {
+    const state = props.store.getState();
     return (
         <div className={'app-wrapper'}>
             <Router>
@@ -28,19 +25,16 @@ function App(props: AppStateTypes) {
                 <Routes>
                     <Route path='/' element={
                         <ProFile
-                            posts={props.state.profilePage.posts}
-                            addPost={props.addPost}
-                            newPostText={props.state.profilePage.newPostText}
-                            updateNewPostText={props.updateNewPostText}
+                            posts={state.profilePage}
+                            dispatch={props.store.dispatch.bind(store)}
                         />
                     }/>
                     <Route path='/dialogs/*' element={
                         <Dialogs
-                            dialogs={props.state.messagePage.dialogs}
-                            messages={props.state.messagePage.messages}
-                            newMessage={props.state.messagePage.newMessage}
-                            addMessage={props.addMessage}
-                            updateNewMessageText={props.updateNewMessageText}
+                            dialogs={state.messagePage.dialogs}
+                            messages={state.messagePage.messages}
+                            newMessage={state.messagePage.newMessage}
+                            dispatch={props.store.dispatch.bind(store)}
                         />
                     }/>
                     <Route path='/news' element={<News/>}/>
