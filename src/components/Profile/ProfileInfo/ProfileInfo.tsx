@@ -10,12 +10,12 @@ export function ProfileInfo() {
 
             </div>
             <div className={cls.descr}>
-                <div className={cls.name}>Name Surname</div>
+                <div className={cls.name}>Dwayne Johnson</div>
                 <div className={cls.date}>
-                    <div>Date of Birth</div>
-                    <div>City</div>
-                    <div>Education</div>
-                    <div>Web Site</div>
+                    <div><span>Date of Birth:</span> 02.05.1972 </div>
+                    <div><span>City:</span> Miami, Florida </div>
+                    <div><span>Education:</span> University of Miami </div>
+                    <div><span>WebSite:</span> https://en.wikipedia.org/wiki/Dwayne_Johnson </div>
                 </div>
             </div>
         </div>
