@@ -19,7 +19,7 @@ export type ProfilePageTypes = {
 export type MessagePageTypes = {
     dialogs: Array<DialogItemTypes>
     messages: Array<MessageItemType>
-    newMessage: string
+    newMessageText: string
 }
 export type StateTypes = {
     profilePage: ProfilePageTypes
@@ -96,7 +96,7 @@ export let store: StoreType = {
                 {id: 6, text: "You are crazy, man!!!"},
                 {id: 7, text: "What is this???"}
             ],
-            newMessage: ''
+            newMessageText: ''
         }
     },
     getState() {
@@ -119,10 +119,10 @@ export let store: StoreType = {
         } else if (action.type === "ADD-MESSAGE") {
             let newMessage: MessageItemType = { id: 8, text: action.newMessage };
             this._state.messagePage.messages.push(newMessage);
-            this._state.messagePage.newMessage = '';
+            this._state.messagePage.newMessageText = '';
             this._callSubscriber();
         } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
-            this._state.messagePage.newMessage = action.newText;
+            this._state.messagePage.newMessageText = action.newText;
             this._callSubscriber();
         }
     }

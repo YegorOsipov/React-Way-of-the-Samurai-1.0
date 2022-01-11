@@ -25,15 +25,14 @@ function App(props: AppStateTypes) {
                 <Routes>
                     <Route path='/' element={
                         <ProFile
-                            posts={state.profilePage}
+                            profilePage={state.profilePage}
                             dispatch={props.store.dispatch.bind(store)}
                         />
                     }/>
                     <Route path='/dialogs/*' element={
                         <Dialogs
-                            dialogs={state.messagePage.dialogs}
-                            messages={state.messagePage.messages}
-                            newMessage={state.messagePage.newMessage}
+                            messagePage={state.messagePage}
+                            newMessageText={state.messagePage.newMessageText}
                             dispatch={props.store.dispatch.bind(store)}
                         />
                     }/>

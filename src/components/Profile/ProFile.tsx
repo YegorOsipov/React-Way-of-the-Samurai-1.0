@@ -6,7 +6,7 @@ import {ProfileImg} from "./ProfileImg/ProfileImg";
 import {ActionsType, ProfilePageTypes} from "../../redux/state";
 
 type ProfileType = {
-    posts: ProfilePageTypes
+    profilePage: ProfilePageTypes
     dispatch: (action: ActionsType) => void
 }
 
@@ -16,7 +16,7 @@ export function ProFile(props: ProfileType) {
             <ProfileImg/>
             <div className={cls.wrapper}>
                 <ProfileInfo/>
-                <MyPost posts={props.posts} dispatch={props.dispatch}  newPostText={props.posts.newPostText}/>
+                <MyPost posts={props.profilePage.posts} dispatch={props.dispatch}  newPostText={props.profilePage.newPostText}/>
             </div>
         </div>
     );

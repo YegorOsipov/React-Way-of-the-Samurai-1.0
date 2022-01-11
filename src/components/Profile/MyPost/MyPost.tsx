@@ -1,17 +1,17 @@
 import React from "react";
 import cls from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {ActionsType, AddPostAC, ProfilePageTypes, UpdateNewPostTextAC} from "../../../redux/state";
+import {ActionsType, AddPostAC, PostTypes, UpdateNewPostTextAC} from "../../../redux/state";
 
 type MyPostType = {
-    posts: ProfilePageTypes
+    posts: Array<PostTypes>
     dispatch: (action: ActionsType) => void
     newPostText: string
 }
 
 
 export function MyPost(props: MyPostType) {
-    const postsElements = props.posts.posts.map(el => (<Post key={el.id} message={el.message} countLikes={el.countLikes} id={el.id}/>));
+    const postsElements = props.posts.map(el => (<Post key={el.id} message={el.message} countLikes={el.countLikes} id={el.id}/>));
 
     const newPostElement = React.createRef<HTMLTextAreaElement>();
     const addPost = () => {
