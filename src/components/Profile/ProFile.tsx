@@ -1,13 +1,12 @@
 import React from "react";
 import cls from "./ProFile.module.css";
-import {MyPost} from "./MyPost/MyPost";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {ProfileImg} from "./ProfileImg/ProfileImg";
-import {ActionsType, ProfilePageTypes} from "../../redux/state";
+import {StoreType} from "../../redux/state";
+import {MyPostContainer} from "./MyPost/MyPostConteiner";
 
 type ProfileType = {
-    profilePage: ProfilePageTypes
-    dispatch: (action: ActionsType) => void
+    store: StoreType
 }
 
 export function ProFile(props: ProfileType) {
@@ -16,7 +15,7 @@ export function ProFile(props: ProfileType) {
             <ProfileImg/>
             <div className={cls.wrapper}>
                 <ProfileInfo/>
-                <MyPost posts={props.profilePage.posts} dispatch={props.dispatch}  newPostText={props.profilePage.newPostText}/>
+                <MyPostContainer store={props.store}/>
             </div>
         </div>
     );

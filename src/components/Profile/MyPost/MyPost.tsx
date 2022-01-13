@@ -1,27 +1,27 @@
 import React from "react";
 import cls from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {ActionsType, PostTypes} from "../../../redux/state";
-import {AddPostAC, UpdateNewPostTextAC} from "../../../redux/reducers/ProfileReducer";
+import {PostTypes} from "../../../redux/state";
 
 type MyPostType = {
     posts: Array<PostTypes>
-    dispatch: (action: ActionsType) => void
     newPostText: string
+    addPost: (newPostText: string) => void
+    onPostChange: (newValue: string) => void
+
 }
 
 
 export function MyPost(props: MyPostType) {
-    const postsElements = props.posts.map(el => (<Post key={el.id} message={el.message} countLikes={el.countLikes} id={el.id}/>));
+    const postsElements = props.posts.map(el => (<Post key={el.id}
+                                                       message={el.message}
+                                                       countLikes={el.countLikes}
+                                                       id={el.id}/>));
 
     const newPostElement = React.createRef<HTMLTextAreaElement>();
-    const addPost = () => {
-        if (newPostElement.current) props.dispatch(AddPostAC(props.newPostText));
-
-    }
-
+    const addPost = () => props.addPost(props.newPostText);
     const onPostChange = () => {
-        if (newPostElement.current) props.dispatch(UpdateNewPostTextAC(newPostElement.current.value));
+        if (newPostElement.current) props.onPostChange(newPostElement.current.value);
     }
 
 

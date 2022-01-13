@@ -42,8 +42,6 @@ type AddMessageActionType = ReturnType<typeof AddMessageAC>
 type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
 export type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType | UpdateNewMessageTextActionType
 
-
-
 export let store: StoreType = {
     _state: {
         profilePage: {

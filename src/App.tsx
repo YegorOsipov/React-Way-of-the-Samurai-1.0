@@ -2,21 +2,20 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {NavBar} from "./components/NavBar/NavBar";
-import {Dialogs} from "./components/Dialog/Dialogs";
 import {ProFile} from "./components/Profile/ProFile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {store, StoreType,} from "./redux/state";
+import {StoreType} from "./redux/state";
+import {DialogsContainer} from "./components/Dialog/DialogsConteiner";
 
-type AppStateTypes = {
+type PropsType = {
     store: StoreType
 }
 
-function App(props: AppStateTypes) {
-    const state = props.store.getState();
-    return (
+function App(props: PropsType) {
+        return (
         <div className={'app-wrapper'}>
             <Router>
                 <Header/>
@@ -24,18 +23,13 @@ function App(props: AppStateTypes) {
 
                 <Routes>
                     <Route path='/' element={
-                        <ProFile
-                            profilePage={state.profilePage}
-                            dispatch={props.store.dispatch.bind(store)}
-                        />
+                        <ProFile store={props.store}/>
                     }/>
+
                     <Route path='/dialogs/*' element={
-                        <Dialogs
-                            messagePage={state.messagePage}
-                            newMessageText={state.messagePage.newMessageText}
-                            dispatch={props.store.dispatch.bind(store)}
-                        />
+                        <DialogsContainer store={props.store}/>
                     }/>
+
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>

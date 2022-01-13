@@ -2,30 +2,28 @@ import React from "react";
 import cls from "./Dialogs.module.css";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {MessageItem} from "./MessageItem/MessageItem";
-import {ActionsType, MessagePageTypes,} from "../../redux/state";
-import {AddMessageAC, UpdateNewMessageTextAC} from "../../redux/reducers/DialogsReducer";
+import {DialogItemTypes, MessageItemType,} from "../../redux/state";
 
 type MessagePageType = {
-    messagePage: MessagePageTypes
-    dispatch: (action: ActionsType) => void
+    dialogs: Array<DialogItemTypes>
+    messages: Array<MessageItemType>
     newMessageText: string
+    addMessage: (newMessageText: string) => void
+    onMessageChange: (newText: string) => void
 }
 
 export function Dialogs(props: MessagePageType) {
 
-    const dialogElements = props.messagePage.dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
-    const messageElements = props.messagePage.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
+    const dialogElements = props.dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
+    const messageElements = props.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
 
     let newText = React.createRef<HTMLTextAreaElement>()
-
     let addMessage = () => {
-        if (newText.current) props.dispatch(AddMessageAC(props.messagePage.newMessageText));
+        if (newText.current) props.addMessage(props.newMessageText);
     }
 
     const onMessageChange = () => {
-        if (newText.current) {
-            props.dispatch(UpdateNewMessageTextAC(newText.current.value));
-        }
+        if (newText.current) props.onMessageChange(newText.current.value);
     }
 
     return (
@@ -37,7 +35,12 @@ export function Dialogs(props: MessagePageType) {
 
             <div className={cls.letters}>
                 {messageElements}
-                <textarea ref={newText} value={props.messagePage.newMessageText} onChange={onMessageChange} className={cls.area} placeholder="your message..."/>
+                <textarea ref={newText}
+                          value={props.newMessageText}
+                          onChange={onMessageChange}
+                          className={cls.area}
+                          placeholder="your message..."
+                />
                 <div className={cls.btnWrapper}>
                     <button onClick={addMessage} className={cls.btn}>Send</button>
                 </div>
