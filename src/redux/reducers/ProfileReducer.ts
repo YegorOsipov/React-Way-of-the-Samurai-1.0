@@ -1,4 +1,12 @@
-import {ActionsType, PostTypes, ProfilePageTypes} from "../state";
+import {ActionsType} from "./DialogsReducer";
+import {PostTypes} from "../../components/Profile/MyPost/Post/Post";
+export type ProfilePageTypes = {
+    posts: Array<PostTypes>
+    newPostText: string
+}
+
+export type AddPostActionType = ReturnType<typeof AddPostAC>
+export type UpdateNewPostTextActionType = ReturnType<typeof UpdateNewPostTextAC>
 
 let initialState: ProfilePageTypes = {
     posts: [
@@ -9,7 +17,7 @@ let initialState: ProfilePageTypes = {
     newPostText: ''
 }
 
-export const ProfileReducer = (state = initialState, action: ActionsType) => {
+export const ProfileReducer = (state = initialState, action: ActionsType): ProfilePageTypes => {
     switch (action.type) {
         case "ADD-POST":
             let newPost: PostTypes = {id: 5, message: action.newPostText, countLikes: 0};

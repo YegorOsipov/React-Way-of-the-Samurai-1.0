@@ -2,17 +2,17 @@ import React from "react";
 import cls from "./Dialogs.module.css";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {MessageItem} from "./MessageItem/MessageItem";
-import {DialogItemTypes, MessageItemType,} from "../../redux/state";
+import {DialogsPropsType} from "./DialogsConteiner";
 
-type MessagePageType = {
-    dialogs: Array<DialogItemTypes>
-    messages: Array<MessageItemType>
-    newMessageText: string
-    addMessage: (newMessageText: string) => void
-    onMessageChange: (newText: string) => void
-}
+// type MessagePageType = {
+//     dialogs: Array<DialogItemTypes>
+//     messages: Array<MessageItemType>
+//     newMessageText: string
+//     addMessage: (newMessageText: string) => void
+//     onMessageChange: (newText: string) => void
+// }
 
-export function Dialogs(props: MessagePageType) {
+export function Dialogs(props: DialogsPropsType) {
 
     const dialogElements = props.dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
     const messageElements = props.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))

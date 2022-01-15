@@ -6,36 +6,32 @@ import {ProFile} from "./components/Profile/ProFile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {StoreType} from "./redux/state";
+import {Route, Routes} from "react-router-dom";
 import {DialogsContainer} from "./components/Dialog/DialogsConteiner";
 
-type PropsType = {
-    store: StoreType
-}
+// type PropsType = {
+//     store: StoreType
+// }
 
-function App(props: PropsType) {
+function App() {
         return (
         <div className={'app-wrapper'}>
-            <Router>
                 <Header/>
                 <NavBar/>
 
                 <Routes>
                     <Route path='/' element={
-                        <ProFile store={props.store}/>
+                        <ProFile/>
                     }/>
 
                     <Route path='/dialogs/*' element={
-                        <DialogsContainer store={props.store}/>
+                        <DialogsContainer/>
                     }/>
 
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>
                 </Routes>
-
-            </Router>
         </div>
 
     );

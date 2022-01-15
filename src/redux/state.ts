@@ -1,34 +1,34 @@
 import {AddMessageAC, DialogsReducer, UpdateNewMessageTextAC} from "./reducers/DialogsReducer";
 import {AddPostAC, ProfileReducer, UpdateNewPostTextAC} from "./reducers/ProfileReducer";
 
-export type DialogItemTypes = {
+type DialogItemTypes = {
     ava: string
     name: string
     id: number
 }
-export type MessageItemType = {
+type MessageItemType = {
     text: string
     id: number
 }
-export type PostTypes = {
+type PostTypes = {
     message: string
     countLikes: number
     id: number
 }
-export type ProfilePageTypes = {
+type ProfilePageTypes = {
     posts: Array<PostTypes>
     newPostText: string
 }
-export type MessagePageTypes = {
+type MessagePageTypes = {
     dialogs: Array<DialogItemTypes>
     messages: Array<MessageItemType>
     newMessageText: string
 }
-export type StateTypes = {
+type StateTypes = {
     profilePage: ProfilePageTypes
     messagePage: MessagePageTypes
 }
-export type StoreType = {
+type StoreType = {
     _state: StateTypes
     getState: () => StateTypes
     _callSubscriber: () => void
@@ -40,7 +40,7 @@ type AddPostActionType = ReturnType<typeof AddPostAC>
 type UpdateNewPostTextActionType = ReturnType<typeof UpdateNewPostTextAC>
 type AddMessageActionType = ReturnType<typeof AddMessageAC>
 type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
-export type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType | UpdateNewMessageTextActionType
+type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType | UpdateNewMessageTextActionType
 
 export let store: StoreType = {
     _state: {

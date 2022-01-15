@@ -1,6 +1,11 @@
 import React from "react";
 import cls from './Post.module.css';
-import {PostTypes} from "../../../../redux/state";
+
+export type PostTypes = {
+    message: string
+    countLikes: number
+    id: number
+}
 
 export function Post(props: PostTypes) {
     return (

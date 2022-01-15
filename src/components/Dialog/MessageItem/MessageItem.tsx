@@ -1,6 +1,6 @@
 import React from "react";
 import cls from "./MessageItem.module.css"
-import {MessageItemType} from "../../../redux/state";
+import {MessageItemType} from "../../../redux/reducers/DialogsReducer";
 
 export function MessageItem(props: MessageItemType) {
     return (

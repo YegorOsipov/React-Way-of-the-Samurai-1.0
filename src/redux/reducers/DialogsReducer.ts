@@ -1,4 +1,18 @@
-import {ActionsType, MessageItemType, MessagePageTypes} from "../state";
+import {AddPostActionType, UpdateNewPostTextActionType} from "./ProfileReducer";
+import {DialogItemTypes} from "../../components/Dialog/DialogItem/DialogItem";
+
+export type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType | UpdateNewMessageTextActionType
+type AddMessageActionType = ReturnType<typeof AddMessageAC>
+type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
+export type MessageItemType = {
+    text: string
+    id: number
+}
+export type MessagePageTypes = {
+    dialogs: Array<DialogItemTypes>
+    messages: Array<MessageItemType>
+    newMessageText: string
+}
 
 let initialState: MessagePageTypes = {
     dialogs: [
@@ -24,7 +38,7 @@ let initialState: MessagePageTypes = {
     newMessageText: ''
 }
 
-export const DialogsReducer = (state = initialState, action: ActionsType) => {
+export const DialogsReducer = (state = initialState, action: ActionsType): MessagePageTypes => {
     switch (action.type) {
         case "ADD-MESSAGE":
             let newMessage: MessageItemType = {id: 8, text: action.newMessage};

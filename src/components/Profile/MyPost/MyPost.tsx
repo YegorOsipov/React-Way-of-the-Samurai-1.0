@@ -1,18 +1,19 @@
 import React from "react";
 import cls from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {PostTypes} from "../../../redux/state";
+import {MyPostPropsType} from "./MyPostConteiner";
 
-type MyPostType = {
-    posts: Array<PostTypes>
-    newPostText: string
-    addPost: (newPostText: string) => void
-    onPostChange: (newValue: string) => void
+// type MyPostType = {
+//     posts: Array<PostTypes>
+//     newPostText: string
+//     addPost: (newPostText: string) => void
+//     onPostChange: (newValue: string) => void
+//
+// }
 
-}
 
 
-export function MyPost(props: MyPostType) {
+export function MyPost(props: MyPostPropsType) {
     const postsElements = props.posts.map(el => (<Post key={el.id}
                                                        message={el.message}
                                                        countLikes={el.countLikes}
