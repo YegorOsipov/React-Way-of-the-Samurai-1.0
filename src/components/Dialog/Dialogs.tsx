@@ -18,9 +18,7 @@ export function Dialogs(props: DialogsPropsType) {
     const messageElements = props.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
 
     let newText = React.createRef<HTMLTextAreaElement>()
-    let addMessage = () => {
-        if (newText.current) props.addMessage(props.newMessageText);
-    }
+    let addMessage = () => props.addMessage(props.newMessageText);
 
     const onMessageChange = () => {
         if (newText.current) props.onMessageChange(newText.current.value);

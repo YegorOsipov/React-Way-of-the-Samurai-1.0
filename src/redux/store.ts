@@ -22,3 +22,4 @@ export const rootReducer = combineReducers({
 export type AppType = ReturnType<typeof rootReducer>
 
 export const store = createStore(rootReducer);
+

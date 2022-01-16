@@ -20,7 +20,9 @@ export function MyPost(props: MyPostPropsType) {
                                                        id={el.id}/>));
 
     const newPostElement = React.createRef<HTMLTextAreaElement>();
-    const addPost = () => props.addPost(props.newPostText);
+    const addPost = () => {
+        props.addPost(props.newPostText);
+    };
     const onPostChange = () => {
         if (newPostElement.current) props.onPostChange(newPostElement.current.value);
     }

@@ -44,15 +44,14 @@ export const DialogsReducer = (state = initialState, action: ActionsType): Messa
             let newMessage: MessageItemType = {id: 8, text: action.newMessage};
             state.messages.push(newMessage);
             state.newMessageText = '';
-            return state;
+            return {...state};
         case "UPDATE-NEW-MESSAGE-TEXT":
             state.newMessageText = action.newText;
-            return state;
+            return {...state};
     }
     return state;
 };
 
-//
 export const AddMessageAC = (newMessage: string) => {
     return {
         type: "ADD-MESSAGE",
