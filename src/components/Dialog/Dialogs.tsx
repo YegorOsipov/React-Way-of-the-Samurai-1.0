@@ -14,8 +14,8 @@ import {DialogsPropsType} from "./DialogsConteiner";
 
 export function Dialogs(props: DialogsPropsType) {
 
-    const dialogElements = props.dialogs.map(el => (<DialogItem ava={el.ava} name={el.name} id={el.id}/>));
-    const messageElements = props.messages.map(el => (<MessageItem text={el.text} id={el.id}/>))
+    const dialogElements = props.dialogs.map(el => (<DialogItem key={el.id} ava={el.ava} name={el.name} id={el.id}/>));
+    const messageElements = props.messages.map(el => (<MessageItem key={el.id} text={el.text} id={el.id}/>))
 
     let newText = React.createRef<HTMLTextAreaElement>()
     let addMessage = () => props.addMessage(props.newMessageText);

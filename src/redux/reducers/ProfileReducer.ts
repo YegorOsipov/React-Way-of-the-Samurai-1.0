@@ -21,13 +21,10 @@ export const ProfileReducer = (state = initialState, action: ActionsType): Profi
     switch (action.type) {
         case "ADD-POST":
             let newPost: PostTypes = {id: 5, message: action.newPostText, countLikes: 0};
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return {...state}
-            // return {...state, posts: [...state.posts, newPost]};
+            return {...state, posts: [newPost, ...state.posts], newPostText: ""};
+
         case "UPDATE-NEW-POST-TEXT":
-            state.newPostText = action.newText;
-            return {...state};
+            return {...state, newPostText: action.newText};
     }
     return state;
 
