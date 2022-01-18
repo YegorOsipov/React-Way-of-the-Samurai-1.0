@@ -5,17 +5,17 @@ import {LocationType} from "../../../redux/reducers/UsersReducer";
 type UsersItemType = {
     id: number
     ava: string
-    follow: boolean
+    followed: boolean
     name: string
     status: string
     location: LocationType
-    changeFollow: (id: number, follow: boolean) => void
+    changeFollow: (id: number, followed: boolean) => void
 }
 
 export function UsersItem(props: UsersItemType) {
 
     const changeFollow = () => {
-        props.changeFollow(props.id, props.follow);
+        props.changeFollow(props.id, props.followed);
     }
 
     return (
@@ -23,8 +23,8 @@ export function UsersItem(props: UsersItemType) {
             <div>
                 <img className={cls.image} src={props.ava} alt="avatar"/>
                 <div>
-                    <button onClick={changeFollow} className={props.follow ? cls.btn_unfollow : cls.btn_follow}>
-                        {props.follow ? "unfollow" : "follow"}
+                    <button onClick={changeFollow} className={props.followed ? cls.btn_unfollow : cls.btn_follow}>
+                        {props.followed ? "unfollow" : "follow"}
                     </button>
                 </div>
             </div>
