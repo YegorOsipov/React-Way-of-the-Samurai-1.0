@@ -1,9 +1,9 @@
-import {AddPostActionType, UpdateNewPostTextActionType} from "./ProfileReducer";
 import {DialogItemTypes} from "../../components/Dialog/DialogItem/DialogItem";
 
-export type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType | UpdateNewMessageTextActionType
-type AddMessageActionType = ReturnType<typeof AddMessageAC>
-type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
+export type AddMessageActionType = ReturnType<typeof AddMessageAC>
+export type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
+type ActionsType = AddMessageActionType | UpdateNewMessageTextActionType
+
 export type MessageItemType = {
     text: string
     id: number

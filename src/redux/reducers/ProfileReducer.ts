@@ -1,10 +1,10 @@
-import {ActionsType} from "./DialogsReducer";
 import {PostTypes} from "../../components/Profile/MyPost/Post/Post";
 export type ProfilePageTypes = {
     posts: Array<PostTypes>
     newPostText: string
 }
 
+type ActionsType = AddPostActionType | UpdateNewPostTextActionType
 export type AddPostActionType = ReturnType<typeof AddPostAC>
 export type UpdateNewPostTextActionType = ReturnType<typeof UpdateNewPostTextAC>
 

@@ -3,16 +3,6 @@ import cls from './MyPost.module.css';
 import {Post} from "./Post/Post";
 import {MyPostPropsType} from "./MyPostConteiner";
 
-// type MyPostType = {
-//     posts: Array<PostTypes>
-//     newPostText: string
-//     addPost: (newPostText: string) => void
-//     onPostChange: (newValue: string) => void
-//
-// }
-
-
-
 export function MyPost(props: MyPostPropsType) {
     const postsElements = props.posts.map(el => (<Post key={el.id}
                                                        message={el.message}

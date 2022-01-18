@@ -86,8 +86,8 @@ export let store: StoreType = {
         this._callSubscriber = observer; // патерн
     },
     dispatch(action) {
-        DialogsReducer(this._state.messagePage, action);
-        ProfileReducer(this._state.profilePage, action);
+        // DialogsReducer(this._state.messagePage, action);
+        // ProfileReducer(this._state.profilePage, action);
         this._callSubscriber();
     }
 }

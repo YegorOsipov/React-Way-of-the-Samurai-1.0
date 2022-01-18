@@ -1,0 +1,75 @@
+.users_item_wrapper {
+    display: flex;
+}
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+.btn_follow {
+    margin-bottom: 20px;
+    width: 100px;
+    border-radius: 0;
+    border: #656565 solid 2px;
+    background-color: #b3dcff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn_follow:hover {
+    font-size: 14px;
+}
+
+.btn_unfollow {
+    margin-bottom: 20px;
+    width: 100px;
+    border-radius: 0;
+    border: #656565 solid 2px;
+    background-color: #afafaf;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn_unfollow:hover {
+    font-size: 14px;
+}
+
+.info {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "name location"
+    "status status";
+
+    margin-left: 20px;
+    padding: 20px;
+    height: 129px;
+    width: 500px;
+    background-color: #ffffff;
+    border: #afafaf 1px solid;
+}
+
+.name {
+    grid-area: name;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.status {
+    grid-area: status;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.location {
+    grid-area: location;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.city {
+    margin-left: 10px;
+}
