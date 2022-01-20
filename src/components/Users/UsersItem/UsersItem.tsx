@@ -35,10 +35,10 @@ export function UsersItem(props: UsersItemType) {
                     <div className={cls.status}>{props.status}</div>
                     <div className={cls.location}>
                         <div>
-                            {props.location.country},
+                            {'props.location.country'},
                         </div>
                         <div className={cls.city}>
-                            {props.location.city}
+                            {'props.location.city'}
                         </div>
                     </div>
                 </div>
