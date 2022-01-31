@@ -2,3 +2,22 @@
     padding: 10px;
     background-color: #e5e5e5;
 }
+
+.pagesWrapper {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.page {
+    margin-left: 4px;
+    cursor: pointer;
+}
+.page:first-child {
+    margin-left: 0;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
