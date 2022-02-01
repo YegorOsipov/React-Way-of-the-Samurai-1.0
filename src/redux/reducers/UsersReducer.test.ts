@@ -21,11 +21,10 @@ test("check changing following user", () => {
        currentPage: 1
    };
 
-   const newValue = false;
-   const endState = UsersReducer(startState, ChangeFollowAC(startState.users[1].id, newValue));
+   const endState = UsersReducer(startState, ChangeFollowAC(startState.users[1].id, startState.users[1].followed));
 
    expect(endState.users.length).toBe(5);
-   expect(endState.users[1].followed).toBe(newValue);
+   expect(endState.users[1].followed).toBe(!startState.users[1].followed);
 });
 
 test("check added users", () => {
