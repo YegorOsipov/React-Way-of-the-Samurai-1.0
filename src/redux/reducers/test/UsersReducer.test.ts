@@ -5,7 +5,7 @@ import {
     setUsersTotalCount, toggleIsFetching,
     UsersPageType,
     UsersReducer
-} from "./UsersReducer";
+} from "../UsersReducer";
 
 test("check changing following user", () => {
    const startState: UsersPageType = {

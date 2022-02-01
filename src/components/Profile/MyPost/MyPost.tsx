@@ -14,7 +14,7 @@ export function MyPost(props: MyPostPropsType) {
         props.addPost(props.newPostText);
     };
     const onPostChange = () => {
-        if (newPostElement.current) props.onPostChange(newPostElement.current.value);
+        if (newPostElement.current) props.updateNewPostText(newPostElement.current.value);
     }
 
 

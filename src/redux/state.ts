@@ -1,5 +1,5 @@
-import {AddMessageAC, DialogsReducer, UpdateNewMessageTextAC} from "./reducers/DialogsReducer";
-import {AddPostAC, ProfileReducer, UpdateNewPostTextAC} from "./reducers/ProfileReducer";
+import {addMessage, DialogsReducer, updateNewMessageText} from "./reducers/DialogsReducer";
+import {addPost, ProfileReducer, updateNewPostText} from "./reducers/ProfileReducer";
 
 type DialogItemTypes = {
     ava: string
@@ -36,10 +36,10 @@ type StoreType = {
     dispatch: (action: ActionsType) => void
 }
 
-type AddPostActionType = ReturnType<typeof AddPostAC>
-type UpdateNewPostTextActionType = ReturnType<typeof UpdateNewPostTextAC>
-type AddMessageActionType = ReturnType<typeof AddMessageAC>
-type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
+type AddPostActionType = ReturnType<typeof addPost>
+type UpdateNewPostTextActionType = ReturnType<typeof updateNewPostText>
+type AddMessageActionType = ReturnType<typeof addMessage>
+type UpdateNewMessageTextActionType = ReturnType<typeof updateNewMessageText>
 type ActionsType = AddPostActionType | UpdateNewPostTextActionType | AddMessageActionType | UpdateNewMessageTextActionType
 
 export let store: StoreType = {

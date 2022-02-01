@@ -5,8 +5,8 @@ export type ProfilePageTypes = {
 }
 
 type ActionsType = AddPostActionType | UpdateNewPostTextActionType
-export type AddPostActionType = ReturnType<typeof AddPostAC>
-export type UpdateNewPostTextActionType = ReturnType<typeof UpdateNewPostTextAC>
+export type AddPostActionType = ReturnType<typeof addPost>
+export type UpdateNewPostTextActionType = ReturnType<typeof updateNewPostText>
 
 let initialState: ProfilePageTypes = {
     posts: [
@@ -30,14 +30,14 @@ export const ProfileReducer = (state = initialState, action: ActionsType): Profi
 
 };
 
-export const AddPostAC = (newPostText: string) => {
+export const addPost = (newPostText: string) => {
     return {
         type: "ADD-POST",
         newPostText
     } as const
 }
 
-export const UpdateNewPostTextAC = (newText: string) => {
+export const updateNewPostText = (newText: string) => {
     return {
         type: "UPDATE-NEW-POST-TEXT",
         newText

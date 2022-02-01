@@ -4,14 +4,6 @@ import {DialogItem} from "./DialogItem/DialogItem";
 import {MessageItem} from "./MessageItem/MessageItem";
 import {DialogsPropsType} from "./DialogsConteiner";
 
-// type MessagePageType = {
-//     dialogs: Array<DialogItemTypes>
-//     messages: Array<MessageItemType>
-//     newMessageText: string
-//     addMessage: (newMessageText: string) => void
-//     onMessageChange: (newText: string) => void
-// }
-
 export function Dialogs(props: DialogsPropsType) {
 
     const dialogElements = props.dialogs.map(el => (<DialogItem key={el.id} ava={el.ava} name={el.name} id={el.id}/>));
@@ -21,7 +13,7 @@ export function Dialogs(props: DialogsPropsType) {
     let addMessage = () => props.addMessage(props.newMessageText);
 
     const onMessageChange = () => {
-        if (newText.current) props.onMessageChange(newText.current.value);
+        if (newText.current) props.updateNewMessageText(newText.current.value);
     }
 
     return (

@@ -1,7 +1,7 @@
 import {DialogItemTypes} from "../../components/Dialog/DialogItem/DialogItem";
 
-export type AddMessageActionType = ReturnType<typeof AddMessageAC>
-export type UpdateNewMessageTextActionType = ReturnType<typeof UpdateNewMessageTextAC>
+export type AddMessageActionType = ReturnType<typeof addMessage>
+export type UpdateNewMessageTextActionType = ReturnType<typeof updateNewMessageText>
 type ActionsType = AddMessageActionType | UpdateNewMessageTextActionType
 
 export type MessageItemType = {
@@ -50,14 +50,14 @@ export const DialogsReducer = (state = initialState, action: ActionsType): Messa
     return state;
 };
 
-export const AddMessageAC = (newMessage: string) => {
+export const addMessage = (newMessage: string) => {
     return {
         type: "ADD-MESSAGE",
         newMessage
     } as const
 }
 
-export const UpdateNewMessageTextAC = (newText: string) => {
+export const updateNewMessageText = (newText: string) => {
     return {
         type: "UPDATE-NEW-MESSAGE-TEXT",
         newText
