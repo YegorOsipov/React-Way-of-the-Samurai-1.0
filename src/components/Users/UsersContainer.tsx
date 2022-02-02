@@ -53,7 +53,8 @@ export class UsersAPIComponent extends React.Component<UsersPropsType, any> {
         return (
             <div className={cls.wrapper}>
                 {/*{this.props.isFetching ? <img src={preloader} alt="preloader"/> : null}*/}
-                <Preloader isFetching={this.props.isFetching}/>
+                {this.props.isFetching ?
+                <Preloader isFetching={this.props.isFetching}/> :
                 <Users
                     users={this.props.users}
                     totalUsersCount={this.props.totalUsersCount}
@@ -61,7 +62,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType, any> {
                     currentPage={this.props.currentPage}
                     changeCurrentPage={this.changeCurrentPage}
                     changeFollow={this.props.changeFollow}
-                />
+                />}
             </div>
         )
     }
