@@ -1,12 +1,15 @@
 import {PostTypes} from "../../components/Profile/MyPost/Post/Post";
+import {ProfileAPIComponent} from "../../components/Profile/ProfileContainer";
 export type ProfilePageTypes = {
     posts: Array<PostTypes>
     newPostText: string
+    profile: {}
 }
 
-type ActionsType = AddPostActionType | UpdateNewPostTextActionType
+type ActionsType = AddPostActionType | UpdateNewPostTextActionType | setUserProfileType
 export type AddPostActionType = ReturnType<typeof addPost>
 export type UpdateNewPostTextActionType = ReturnType<typeof updateNewPostText>
+type setUserProfileType = ReturnType<typeof setUserProfile>
 
 let initialState: ProfilePageTypes = {
     posts: [
@@ -14,7 +17,8 @@ let initialState: ProfilePageTypes = {
         {id: 2, message: "The world is mine!!!", countLikes: 10},
         {id: 3, message: "Glad to see you!!!", countLikes: 6}
     ],
-    newPostText: ''
+    newPostText: '',
+    profile: {}
 }
 
 export const ProfileReducer = (state = initialState, action: ActionsType): ProfilePageTypes => {
@@ -25,8 +29,12 @@ export const ProfileReducer = (state = initialState, action: ActionsType): Profi
 
         case "UPDATE-NEW-POST-TEXT":
             return {...state, newPostText: action.newText};
+
+        case "SET-USERS-PROFILE":
+            return {...state, profile: action.payload.profile};
+        default: return state;
     }
-    return state;
+
 
 };
 
@@ -41,5 +49,14 @@ export const updateNewPostText = (newText: string) => {
     return {
         type: "UPDATE-NEW-POST-TEXT",
         newText
+    } as const
+}
+
+export const setUserProfile = (profile: {}) => {
+    return {
+        type: "SET-USERS-PROFILE",
+        payload : {
+            profile
+        }
     } as const
 }

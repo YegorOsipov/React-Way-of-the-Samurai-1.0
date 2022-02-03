@@ -9,6 +9,7 @@ import {Settings} from "./components/Settings/Settings";
 import {Route, Routes} from "react-router-dom";
 import {DialogsContainer} from "./components/Dialog/DialogsConteiner";
 import {UsersContainer} from "./components/Users/UsersContainer";
+import {ProfileContainer} from "./components/Profile/ProfileContainer";
 
 // type PropsType = {
 //     store: StoreType
@@ -21,9 +22,10 @@ function App() {
                 <NavBar/>
 
                 <Routes>
-                    <Route path='/' element={<ProFile/>}/>
+                    <Route path='/' element={<ProFile/>}/>  {/*главная*/}
+                    <Route path='/profile/' element={<ProfileContainer />}/>
                     <Route path='/dialogs/*' element={<DialogsContainer/>}/>
-                    <Route path='/users/*' element={<UsersContainer/>}/>
+                    <Route path='/users/' element={<UsersContainer/>}/>
 
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>

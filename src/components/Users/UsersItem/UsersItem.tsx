@@ -1,6 +1,7 @@
 import React from "react";
 import cls from "./UsersItem.module.css"
 import {LocationType} from "../../../redux/reducers/UsersReducer";
+import { NavLink } from "react-router-dom";
 
 type UsersItemType = {
     id: number
@@ -21,7 +22,9 @@ export function UsersItem(props: UsersItemType) {
     return (
         <div className={cls.users_item_wrapper}>
             <div>
-                <img className={cls.image} src={props.ava} alt="avatar"/>
+               <NavLink to={"/profile"}>
+                   <img className={cls.image} src={props.ava} alt="avatar"/>
+               </NavLink>
                 <div>
                     <button onClick={changeFollow} className={props.followed ? cls.btn_unfollow : cls.btn_follow}>
                         {props.followed ? "unfollow" : "follow"}

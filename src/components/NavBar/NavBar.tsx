@@ -9,7 +9,7 @@ export function NavBar() {
     return (
         <nav className={cls.nav}>
             <div className={cls.item}>
-                <NavLink to="/" className={active}>Profile</NavLink>
+                <NavLink to="/profile" className={active}>Profile</NavLink>
             </div>
 
             <div className={cls.item}>
