@@ -16,6 +16,7 @@
     grid-area: cont-wr;
     padding: 0 10px 0;
     background-color: #e5e5e5;
+    display: grid;
 }
 
 .wrapperWall {

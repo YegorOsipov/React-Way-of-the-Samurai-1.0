@@ -1,9 +1,34 @@
 import {PostTypes} from "../../components/Profile/MyPost/Post/Post";
-import {ProfileAPIComponent} from "../../components/Profile/ProfileContainer";
+
+type PhotosType = {
+    large: string | null
+    small: string | null
+}
+
+export type ContactsType = {
+    facebook: string | null
+    github: string | null
+    instagram: string | null
+    mainLink: string | null
+    twitter: string | null
+    vk: string | null
+    website: string | null
+    youtube: string | null
+}
+
+export type UserProfilePropsType = {
+    fullName: string
+    aboutMe: string | null
+    contacts: ContactsType
+    lookingForAJob: true
+    lookingForAJobDescription: string | null
+    photos: PhotosType
+}
+
 export type ProfilePageTypes = {
     posts: Array<PostTypes>
     newPostText: string
-    profile: {}
+    profile: UserProfilePropsType | null
 }
 
 type ActionsType = AddPostActionType | UpdateNewPostTextActionType | setUserProfileType
@@ -18,7 +43,7 @@ let initialState: ProfilePageTypes = {
         {id: 3, message: "Glad to see you!!!", countLikes: 6}
     ],
     newPostText: '',
-    profile: {}
+    profile: null
 }
 
 export const ProfileReducer = (state = initialState, action: ActionsType): ProfilePageTypes => {
@@ -30,8 +55,8 @@ export const ProfileReducer = (state = initialState, action: ActionsType): Profi
         case "UPDATE-NEW-POST-TEXT":
             return {...state, newPostText: action.newText};
 
-        case "SET-USERS-PROFILE":
-            return {...state, profile: action.payload.profile};
+        case "SET-USER-PROFILE":
+            return {...state, profile: action.profile};
         default: return state;
     }
 
@@ -41,22 +66,20 @@ export const ProfileReducer = (state = initialState, action: ActionsType): Profi
 export const addPost = (newPostText: string) => {
     return {
         type: "ADD-POST",
-        newPostText
+        newPostText,
     } as const
 }
 
 export const updateNewPostText = (newText: string) => {
     return {
         type: "UPDATE-NEW-POST-TEXT",
-        newText
+        newText,
     } as const
 }
 
-export const setUserProfile = (profile: {}) => {
+export const setUserProfile = (profile: UserProfilePropsType) => {
     return {
-        type: "SET-USERS-PROFILE",
-        payload : {
-            profile
-        }
+        type: "SET-USER-PROFILE",
+        profile,
     } as const
 }

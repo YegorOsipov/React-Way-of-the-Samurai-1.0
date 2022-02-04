@@ -22,7 +22,7 @@ function App() {
                 <NavBar/>
 
                 <Routes>
-                    <Route path='/' element={<ProFile/>}/>  {/*главная*/}
+                    <Route path='/' element={<ProfileContainer/>}/>  {/*главная*/}
                     <Route path='/profile/' element={<ProfileContainer />}/>
                     <Route path='/dialogs/*' element={<DialogsContainer/>}/>
                     <Route path='/users/' element={<UsersContainer/>}/>

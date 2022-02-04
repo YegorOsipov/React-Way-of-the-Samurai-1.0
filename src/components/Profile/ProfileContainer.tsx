@@ -3,34 +3,31 @@ import React from "react";
 import axios from "axios";
 import {connect} from "react-redux";
 import {AppType} from "../../redux/store";
-import {setUserProfile} from "../../redux/reducers/ProfileReducer";
-import {PostTypes} from "./MyPost/Post/Post";
+import {setUserProfile, UserProfilePropsType} from "../../redux/reducers/ProfileReducer";
 
 export class ProfileAPIComponent extends React.Component<ProfilePropsType> {
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`).then(response => {
+            // debugger
             this.props.setUserProfile(response.data);
         })
     }
 
     render() {
         return (
-            <ProFile/>
+            <ProFile {...this.props} profile={this.props.profile}/>
         )
     }
 }
 
 export type ProfilePropsType = MapStateToPropsType & MapDispatchToProps
 
-
 type MapStateToPropsType = {
-    posts: Array<PostTypes>
-    newPostText: string
-    profile: any
+    profile: UserProfilePropsType | null
 }
 
 type MapDispatchToProps = {
-    setUserProfile: (profile: {}) => void
+    setUserProfile: (profile: UserProfilePropsType) => void
 }
 
 const mapStateToProps = (state: AppType) => ({
