@@ -14,17 +14,35 @@ type SocialPropsType = {
 export const Social = (props: SocialPropsType) => {
     return (
         <div className={cls.social}>
-            {props.contacts.facebook && <a href={props.contacts.facebook}><img src={fb} alt="facebook"/></a>}
+            {props.contacts.facebook &&
+            <a href={props.contacts.facebook} target={"_blank"} rel={"noreferrer"}>
+                <img src={fb} alt="facebook"/>
+            </a>}
 
-            {props.contacts.instagram && <a href={props.contacts.instagram}><img src={inst} alt="instagram"/></a>}
+            {props.contacts.instagram &&
+            <a href={props.contacts.instagram} target={"_blank"} rel={"noreferrer"}>
+                <img src={inst} alt="instagram"/>
+            </a>}
 
-            {props.contacts.twitter && <a href={props.contacts.twitter}><img src={twitter} alt="twitter"/></a>}
+            {props.contacts.twitter &&
+            <a href={props.contacts.twitter} target={"_blank"} rel={"noreferrer"}>
+                <img src={twitter} alt="twitter"/>
+            </a>}
 
-            {props.contacts.youtube && <a href={props.contacts.youtube}><img src={youtube} alt="youtube"/></a>}
+            {props.contacts.youtube &&
+            <a href={props.contacts.youtube} target={"_blank"} rel={"noreferrer"}>
+                <img src={youtube} alt="youtube"/>
+            </a>}
 
-            {props.contacts.vk && <a href={props.contacts.vk}><img src={vk} alt="vk"/></a>}
+            {props.contacts.vk &&
+            <a href={props.contacts.vk} target={"_blank"} rel={"noreferrer"}>
+                <img src={vk} alt="vk"/>
+            </a>}
 
-            {props.contacts.github && <a href={props.contacts.github}><img src={git} alt="git"/></a>}
+            {props.contacts.github &&
+            <a href={props.contacts.github} target={"_blank"} rel={"noreferrer"}>
+                <img src={git} alt="git"/>
+            </a>}
         </div>
     )
 }

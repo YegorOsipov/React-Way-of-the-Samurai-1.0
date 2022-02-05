@@ -22,7 +22,7 @@ export function UsersItem(props: UsersItemType) {
     return (
         <div className={cls.users_item_wrapper}>
             <div>
-               <NavLink to={"/profile"}>
+               <NavLink to={`/profile/${props.id}`}>
                    <img className={cls.image} src={props.ava} alt="avatar"/>
                </NavLink>
                 <div>

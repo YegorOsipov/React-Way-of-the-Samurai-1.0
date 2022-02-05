@@ -20,7 +20,7 @@ export type UserProfilePropsType = {
     fullName: string
     aboutMe: string | null
     contacts: ContactsType
-    lookingForAJob: true
+    lookingForAJob: boolean
     lookingForAJobDescription: string | null
     photos: PhotosType
 }

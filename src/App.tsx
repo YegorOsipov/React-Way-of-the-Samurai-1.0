@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {NavBar} from "./components/NavBar/NavBar";
-import {ProFile} from "./components/Profile/ProFile";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
@@ -23,7 +22,7 @@ function App() {
 
                 <Routes>
                     <Route path='/' element={<ProfileContainer/>}/>  {/*главная*/}
-                    <Route path='/profile/' element={<ProfileContainer />}/>
+                    <Route path='/profile/:userId' element={<ProfileContainer />}/>
                     <Route path='/dialogs/*' element={<DialogsContainer/>}/>
                     <Route path='/users/' element={<UsersContainer/>}/>
 
