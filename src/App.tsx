@@ -22,8 +22,13 @@ function App() {
 
                 <Routes>
                     <Route path='/' element={<ProfileContainer/>}/>  {/*главная*/}
-                    <Route path='/profile/:userId' element={<ProfileContainer />}/>
+
+                    <Route path="/profile" element={<ProfileContainer />}>
+                        <Route path=":userId" element={<ProfileContainer />} />
+                    </Route>
+
                     <Route path='/dialogs/*' element={<DialogsContainer/>}/>
+
                     <Route path='/users/' element={<UsersContainer/>}/>
 
                     <Route path='/news' element={<News/>}/>
