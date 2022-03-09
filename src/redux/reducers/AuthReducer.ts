@@ -1,6 +1,6 @@
 const SET_USER_DATA = "SET-USER-DATA";
 
-type DataType = {
+export type DataType = {
     userId: number | null
     email: string | null
     login: string | null
@@ -20,7 +20,7 @@ export const AuthReducer = (state = initialState, action: setUserDataType): Data
     }
 };
 
-type setUserDataType = ReturnType<typeof setUserData>
+export type SetUserDataType = ReturnType<typeof setUserData>
 export const setUserData = (data: DataType) => {
     return {
         type: SET_USER_DATA,

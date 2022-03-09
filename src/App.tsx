@@ -9,6 +9,7 @@ import {Route, Routes} from "react-router-dom";
 import {DialogsContainer} from "./components/Dialog/DialogsConteiner";
 import {UsersContainer} from "./components/Users/UsersContainer";
 import {ProfileContainer} from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 // type PropsType = {
 //     store: StoreType
@@ -17,7 +18,7 @@ import {ProfileContainer} from "./components/Profile/ProfileContainer";
 function App() {
         return (
         <div className={'app-wrapper'}>
-                <Header/>
+                <HeaderContainer/>
                 <NavBar/>
 
                 <Routes>

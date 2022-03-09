@@ -20,3 +20,10 @@
     color: #ec5441;
 }
 
+.login a {
+    margin-right: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+}
+
