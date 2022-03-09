@@ -18,7 +18,9 @@ const withRouter = (Component: typeof React.Component) => {
 export class ProfileAPIComponent extends React.Component<ProfilePropsType> {
     componentDidMount() {
         let userId = this.props.params.userId;
-        if (!userId) userId="2";
+        if (!userId) {
+            userId = "2";
+        }
 
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId).then(response => {
                 this.props.setUserProfile(response.data);

@@ -21,8 +21,6 @@ function App() {
                 <NavBar/>
 
                 <Routes>
-                    <Route path='/' element={<ProfileContainer/>}/>  {/*главная*/}
-
                     <Route path="/profile" element={<ProfileContainer />}>
                         <Route path=":userId" element={<ProfileContainer />} />
                     </Route>

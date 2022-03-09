@@ -1,8 +1,9 @@
 .social {
     display: flex;
-    max-width: 270px;
-    justify-content: space-between;
+    max-width: 350px;
+    justify-content: start;
     align-items: center;
+    font-weight: bold;
 }
 
 .social img {

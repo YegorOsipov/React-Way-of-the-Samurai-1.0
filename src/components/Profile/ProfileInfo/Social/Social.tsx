@@ -14,6 +14,8 @@ type SocialPropsType = {
 export const Social = (props: SocialPropsType) => {
     return (
         <div className={cls.social}>
+            <div>My contacts:</div>
+
             {props.contacts.facebook &&
             <a href={props.contacts.facebook} target={"_blank"} rel={"noreferrer"}>
                 <img src={fb} alt="facebook"/>
