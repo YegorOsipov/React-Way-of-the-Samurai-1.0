@@ -3,33 +3,57 @@ import React from "react";
 import cls from "./NavBar.module.css";
 import {NavLink} from "react-router-dom";
 
-export let active = (navData:{isActive: boolean}) => navData.isActive ? cls.active : "";
+// export let active = ({isActive: boolean}) => isActive ? cls.active : "";
 
 export function NavBar() {
     return (
         <nav className={cls.nav}>
             <div className={cls.item}>
-                <NavLink to="/profile" className={active}>Profile</NavLink>
+                <NavLink
+                    to="/profile"
+                    className={({isActive}) => isActive ? cls.active : ""}>
+                    Profile
+                </NavLink>
             </div>
 
             <div className={cls.item}>
-                <NavLink to="/dialogs" className={active}>Messages</NavLink>
+                <NavLink
+                    to="/dialogs"
+                    className={({isActive}) => isActive ? cls.active : ""}>
+                    Messages
+                </NavLink>
             </div>
 
             <div className={cls.item}>
-                <NavLink to="/users" className={active}>Users</NavLink>
+                <NavLink
+                    to="/users"
+                    className={({isActive}) => isActive ? cls.active : ""}>
+                    Users
+                </NavLink>
             </div>
 
             <div className={cls.item}>
-                <NavLink to="/news" className={active}>News</NavLink>
+                <NavLink
+                    to="/news"
+                    className={({isActive}) => isActive ? cls.active : ""}>
+                    News
+                </NavLink>
             </div>
 
             <div className={cls.item}>
-                <NavLink to="/music" className={active}>Music</NavLink>
+                <NavLink
+                    to="/music"
+                    className={({isActive}) => isActive ? cls.active : ""}>
+                    Music
+                </NavLink>
             </div>
 
             <div className={cls.item}>
-                <NavLink to="/settings" className={active}>Settings</NavLink>
+                <NavLink
+                    to="/settings"
+                    className={({isActive}) => isActive ? cls.active : ""}>
+                    Settings
+                </NavLink>
             </div>
         </nav>
     );

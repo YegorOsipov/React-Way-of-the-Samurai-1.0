@@ -1,18 +1,20 @@
-import LogoSrc from "../../images/logo.png";
 import React from "react";
-import cls from "./Header.module.css";
 import {Header} from "./Header";
 import axios from "axios";
-import {DataType, SetUserDataType} from "../../redux/reducers/AuthReducer";
-import { connect } from "react-redux";
-import {SetUsersType} from "../../redux/reducers/UsersReducer";
+import {DataType, setUserData} from "../../redux/reducers/AuthReducer";
+import {connect} from "react-redux";
 
 class HeaderContainer extends React.Component <HeaderPropsType> {
     componentDidMount() {
         // this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => {
-            debugger;
-        })
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => {
+        //     // debugger;
+        //     // console.log(this.props.data.isAuth);
+        //     if (response.data.resultCode === 0) {
+        //         let {id, login, email} = response.data.data
+        //         this.props.setUserData(login);
+        //     }
+        // })
     }
 
     render() {
@@ -23,7 +25,8 @@ class HeaderContainer extends React.Component <HeaderPropsType> {
 }
 
 type MapStateToProps = {
-    data: DataType
+    data: DataType,
+    isAuth: boolean
 }
 type MapDispatchToProps = {
     setUserData: (data: DataType) => void
@@ -31,6 +34,12 @@ type MapDispatchToProps = {
 
 export type HeaderPropsType = MapStateToProps & MapDispatchToProps
 
-const mapStateToProps = (state: MapStateToProps) => {}
+const mapStateToProps = (state: MapStateToProps) => {
+    // debugger;
+    return {
+        data: state.data,
+        isAuth: false
+    }
+}
 
-export default connect(mapStateToProps, {})(HeaderContainer);
+export default connect(mapStateToProps, {setUserData})(HeaderContainer);

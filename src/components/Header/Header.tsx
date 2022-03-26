@@ -6,6 +6,7 @@ import {DataType} from "../../redux/reducers/AuthReducer";
 
 type HeaderPropsType = {
     data: DataType
+    isAuth: boolean
     setUserData: (data: DataType) => void
 }
 
@@ -17,7 +18,8 @@ export function Header(props: HeaderPropsType) {
                 <div className={cls.name}>Social Network</div>
             </div>
             <div className={cls.login}>
-                <NavLink to="/login">Login</NavLink>
+                {/*{props.data.login ? props.isAuth = true : ''}*/}
+                {props.isAuth ? props.data.login : <NavLink to="/login">Login</NavLink>}
             </div>
         </header>
     );
